@@ -1,0 +1,4 @@
+PR-AUC: 0.8063
+Brier Score: 0.1682
+Decision Precision: 69.78%
+Net Profit (AI Strategy): ₹1,144,788.20
