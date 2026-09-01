@@ -1,4 +1,9 @@
-PR-AUC: 0.8063
-Brier Score: 0.1682
-Decision Precision: 69.78%
-Net Profit (AI Strategy): ₹1,144,788.20
+PR-AUC: 0.8147
+Brier Score: 0.1565
+Brier Skill Score: 0.3732
+Decision Precision: 72.93%
+Decision Recall: 71.15%
+Net Profit (AI Strategy): Rs941,368.10
+Net Profit (Fight All): Rs559,919.68
+Value Added vs Fight All: Rs381,448.42
+Oracle Fraction: 71.1%

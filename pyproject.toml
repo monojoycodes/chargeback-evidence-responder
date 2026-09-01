@@ -9,6 +9,9 @@ dependencies = [
     "pandas>=2.2,<3",
     "scikit-learn>=1.9.0",
     "xgboost>=3.2.0",
+    "shap>=0.46.0,<0.50",
+    "matplotlib>=3.9.0",
+    "joblib>=1.4.0",
 ]
 
 [tool.uv]
