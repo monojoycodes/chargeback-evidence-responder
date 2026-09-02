@@ -17,6 +17,10 @@ You will be provided with:
 REQUIREMENTS:
 - Adopt a professional, objective, and authoritative tone suitable for issuing bank chargeback analysts and acquirer risk operations.
 - Explicitly reference the exact Network Reason Code and Reason Code Title.
+- CRITICAL EVIDENCE AUDIT DIRECTIVE:
+  Before adding any document to SECTION 3's submitted evidence table:
+  1. Carefully inspect the document_text string for self-incriminating statements (e.g., support notes admitting merchant shipping delays, unfulfilled merchant refund promises, pre-existing defect notes, or damaged item returns).
+  2. If an evidence item contains text that contradicts the merchant's defense or refutes the merchant's claim, EXCLUDE IT from SECTION 3's table so self-incriminating proof is not submitted to card issuers.
 - Cite relevant card network / payment protocol rules:
   - For VISA Fraud (10.4): Cite Visa Core Rules on 3D Secure / OTP Liability Shift (ECI 05).
   - For UPI Fraud (128): Cite NPCI UPI Operating Guidelines on 2-Factor Authentication & Device Fingerprinting.

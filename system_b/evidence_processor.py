@@ -84,15 +84,15 @@ def get_case_evidence_payload(case_id, cases_df=None):
     evidence_df = pd.read_csv(EVIDENCE_PATH)
     case_evidence = evidence_df[evidence_df["case_id"] == case_id].copy()
 
-    # FILTER: Exclude contradictory evidence items
-    clean_evidence = case_evidence[~case_evidence["is_contradictory"]].copy()
-
-    # SORT: Prioritize required evidence, then highest quality score
-    clean_evidence["is_required_int"] = clean_evidence["is_required"].astype(int)
-    ranked_evidence = clean_evidence.sort_values(
+    # OPTION B: Pass ALL evidence items to LLM for dynamic text auditing
+    # (Do NOT filter by is_contradictory in Python; let LLM audit raw text snippets)
+    all_evidence = case_evidence.copy()
+    all_evidence["is_required_int"] = all_evidence["is_required"].astype(int)
+    ranked_evidence = all_evidence.sort_values(
         by=["is_required_int", "evidence_quality_score"], ascending=[False, False]
     )
 
+    # Omit is_contradictory from payload so LLM gets no pre-labeled boolean flags
     evidence_list = ranked_evidence[
         ["evidence_id", "evidence_type", "document_text", "is_required", "evidence_quality_score"]
     ].to_dict(orient="records")
@@ -102,7 +102,7 @@ def get_case_evidence_payload(case_id, cases_df=None):
         "evidence_items": evidence_list,
         "total_evidence_found": len(case_evidence),
         "clean_evidence_count": len(evidence_list),
-        "filtered_contradictory_count": len(case_evidence) - len(clean_evidence),
+        "filtered_contradictory_count": 0,  # Handled dynamically by LLM
     }
 
 

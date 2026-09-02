@@ -224,7 +224,18 @@ EVIDENCE_TEMPLATES = {
 }
 
 
-def generate_evidence_text(evidence_type, transaction_id, order_id, amount, category, reason_code):
+CONTRADICTORY_SNIPPETS = {
+    "CUSTOMER_COMMUNICATION": lambda t, o, a, c, rcode: f"Support Log for order {o}: Support representative admitted merchant dispatch delay and promised a full refund on 2026-05-10.",
+    "DELIVERY_TRACKING": lambda t, o, a, c, rcode: f"Courier tracking exception note for order {o}: Package marked as returned to sender due to damaged outer packaging.",
+    "QC_RECORDS": lambda t, o, a, c, rcode: f"Quality Control Inspection Log for order {o}: Inspector noted pre-existing cosmetic defect on product before dispatch.",
+    "RETURN_RECORD": lambda t, o, a, c, rcode: f"Merchant RMA Record for order {o}: Return request approved by merchant on 2026-05-12; pending refund issuing.",
+    "REFUND_RECORD": lambda t, o, a, c, rcode: f"Merchant Finance Log for transaction {t}: Partial refund processed; discrepancy remaining.",
+    "TERMS_AND_CONDITIONS": lambda t, o, a, c, rcode: "Merchant Policy Note: Cancellation window disclosed as 14 days, but purchase was billed post-cancellation deadline.",
+}
+
+def generate_evidence_text(evidence_type, transaction_id, order_id, amount, category, reason_code, is_contradictory=False):
+    if is_contradictory and evidence_type in CONTRADICTORY_SNIPPETS:
+        return CONTRADICTORY_SNIPPETS[evidence_type](transaction_id, order_id, amount, category, reason_code)
     fn = EVIDENCE_TEMPLATES.get(evidence_type)
     return fn(transaction_id, order_id, amount, category, reason_code) if fn else f"Evidence record for transaction {transaction_id}."
 
@@ -352,7 +363,7 @@ for _, case in cases_df.iterrows():
             "normalized_category": category,
             "reason_code": rcode,
             "evidence_type": evidence_type,
-            "document_text": generate_evidence_text(evidence_type, tid, oid, amount, category, rcode),
+            "document_text": generate_evidence_text(evidence_type, tid, oid, amount, category, rcode, is_contradictory=is_contradictory),
             "is_required": is_required, "is_relevant": is_relevant,
             "is_contradictory": is_contradictory,
             "evidence_strength_score": round(float(evidence_strength), 4),
