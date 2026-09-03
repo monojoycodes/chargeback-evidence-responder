@@ -52,7 +52,7 @@ OUTPUT STRUCTURE:
 
 ---
 
-### SECTION 3: INDEX OF COMPELLING EVIDENCE SUBMITTED
+### SECTION 3: INDEX OF EVIDENCE SUBMITTED
 | Document # | Evidence Type | Evidence Summary & Technical Record | Network Requirement Addressed |
 |---|---|---|---|
 [List every provided evidence item in a markdown table. Map each item to the relevant network requirement.]

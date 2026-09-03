@@ -1,0 +1,77 @@
+{
+  "case_id": "CB_IN_2026_00431",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "41.3%",
+    "expected_value_inr": 12968.287247614326,
+    "model_decision": "FIGHT",
+    "false_positive_cost_inr": 1700
+  },
+  "mandatory_document_audit": {
+    "category": "FRAUD_UNAUTHORIZED",
+    "mandatory_required_docs": [
+      "PAYMENT_AUTHORIZATION",
+      "THREE_DS_AUTHENTICATION"
+    ],
+    "submitted_doc_types": [
+      "LOGIN_LOG",
+      "RETURN_POLICY",
+      "PAYMENT_AUTHORIZATION",
+      "DELIVERY_TRACKING",
+      "DEVICE_LOG",
+      "CUSTOMER_COMMUNICATION",
+      "IP_LOG",
+      "THREE_DS_AUTHENTICATION"
+    ],
+    "all_mandatory_present": true
+  },
+  "submitted_evidence_scores": [
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_01",
+      "evidence_type": "THREE_DS_AUTHENTICATION",
+      "is_required": true,
+      "quality_score": 0.963
+    },
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_00",
+      "evidence_type": "PAYMENT_AUTHORIZATION",
+      "is_required": true,
+      "quality_score": 0.8665
+    },
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_04",
+      "evidence_type": "IP_LOG",
+      "is_required": false,
+      "quality_score": 0.8794
+    },
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_02",
+      "evidence_type": "LOGIN_LOG",
+      "is_required": false,
+      "quality_score": 0.8545
+    },
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_05",
+      "evidence_type": "CUSTOMER_COMMUNICATION",
+      "is_required": false,
+      "quality_score": 0.7881
+    },
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_03",
+      "evidence_type": "DEVICE_LOG",
+      "is_required": false,
+      "quality_score": 0.7496
+    },
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_07",
+      "evidence_type": "RETURN_POLICY",
+      "is_required": false,
+      "quality_score": 0.283
+    },
+    {
+      "evidence_id": "CB_IN_2026_00431_EV_06",
+      "evidence_type": "DELIVERY_TRACKING",
+      "is_required": false,
+      "quality_score": 0.1735
+    }
+  ]
+}

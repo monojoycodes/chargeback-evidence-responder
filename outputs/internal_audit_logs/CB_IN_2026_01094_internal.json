@@ -1,0 +1,63 @@
+{
+  "case_id": "CB_IN_2026_01094",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "78.4%",
+    "expected_value_inr": 10817.838042884112,
+    "model_decision": "FIGHT",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "ITEM_NOT_RECEIVED",
+    "mandatory_required_docs": [
+      "DELIVERY_TRACKING",
+      "PROOF_OF_DELIVERY"
+    ],
+    "submitted_doc_types": [
+      "ORDER_CONFIRMATION",
+      "TERMS_AND_CONDITIONS",
+      "LOGIN_LOG",
+      "PROOF_OF_DELIVERY",
+      "DELIVERY_TRACKING",
+      "DEVICE_LOG"
+    ],
+    "all_mandatory_present": true
+  },
+  "submitted_evidence_scores": [
+    {
+      "evidence_id": "CB_IN_2026_01094_EV_00",
+      "evidence_type": "DELIVERY_TRACKING",
+      "is_required": true,
+      "quality_score": 0.8249
+    },
+    {
+      "evidence_id": "CB_IN_2026_01094_EV_01",
+      "evidence_type": "PROOF_OF_DELIVERY",
+      "is_required": true,
+      "quality_score": 0.7085
+    },
+    {
+      "evidence_id": "CB_IN_2026_01094_EV_03",
+      "evidence_type": "ORDER_CONFIRMATION",
+      "is_required": false,
+      "quality_score": 0.8409
+    },
+    {
+      "evidence_id": "CB_IN_2026_01094_EV_02",
+      "evidence_type": "TERMS_AND_CONDITIONS",
+      "is_required": false,
+      "quality_score": 0.6329
+    },
+    {
+      "evidence_id": "CB_IN_2026_01094_EV_04",
+      "evidence_type": "DEVICE_LOG",
+      "is_required": false,
+      "quality_score": 0.4038
+    },
+    {
+      "evidence_id": "CB_IN_2026_01094_EV_05",
+      "evidence_type": "LOGIN_LOG",
+      "is_required": false,
+      "quality_score": 0.0
+    }
+  ]
+}

@@ -90,7 +90,7 @@ Accordingly, the cardholder's dispute is invalid, and the issuing bank is requir
 
 ---
 
-### SECTION 3: INDEX OF COMPELLING EVIDENCE SUBMITTED
+### SECTION 3: INDEX OF EVIDENCE SUBMITTED
 | Document # | Evidence Type | Evidence Summary & Technical Record | Network Requirement Addressed |
 |---|---|---|---|
 {table_body}
@@ -148,7 +148,15 @@ def main():
         file_path = OUTPUT_DIR / file_name
         file_path.write_text(response_text, encoding="utf-8")
         generated_files.append(file_path)
-        print(f"  -> Saved defense package to {file_path.relative_to(ROOT)}")
+
+        # Compile PDF version
+        try:
+            from system_b.pdf_compiler import compile_chargeback_pdf, PDF_OUTPUT_DIR
+            pdf_path = PDF_OUTPUT_DIR / f"{case_id}_{network}_{rcode}.pdf"
+            compile_chargeback_pdf(payload, output_filename=pdf_path)
+            print(f"  -> Saved defense package to {file_path.relative_to(ROOT)} AND PDF to {pdf_path.relative_to(ROOT)}")
+        except Exception as pdf_err:
+            print(f"  -> Saved defense package to {file_path.relative_to(ROOT)} (PDF compilation warning: {pdf_err})")
 
     print("\n" + "=" * 60)
     print("SYSTEM B RESPONSE GENERATION COMPLETE")

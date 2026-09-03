@@ -1,0 +1,55 @@
+{
+  "case_id": "CB_IN_2026_03043",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "79.7%",
+    "expected_value_inr": 10195.972175117491,
+    "model_decision": "FIGHT",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "DUPLICATE_TRANSACTION",
+    "mandatory_required_docs": [
+      "PAYMENT_AUTHORIZATION"
+    ],
+    "submitted_doc_types": [
+      "ORDER_CONFIRMATION",
+      "LOGIN_LOG",
+      "PAYMENT_AUTHORIZATION",
+      "DELIVERY_TRACKING",
+      "PRODUCT_IMAGES"
+    ],
+    "all_mandatory_present": true
+  },
+  "submitted_evidence_scores": [
+    {
+      "evidence_id": "CB_IN_2026_03043_EV_00",
+      "evidence_type": "PAYMENT_AUTHORIZATION",
+      "is_required": true,
+      "quality_score": 0.8599
+    },
+    {
+      "evidence_id": "CB_IN_2026_03043_EV_01",
+      "evidence_type": "ORDER_CONFIRMATION",
+      "is_required": false,
+      "quality_score": 0.6937
+    },
+    {
+      "evidence_id": "CB_IN_2026_03043_EV_03",
+      "evidence_type": "PRODUCT_IMAGES",
+      "is_required": false,
+      "quality_score": 0.4458
+    },
+    {
+      "evidence_id": "CB_IN_2026_03043_EV_04",
+      "evidence_type": "LOGIN_LOG",
+      "is_required": false,
+      "quality_score": 0.1784
+    },
+    {
+      "evidence_id": "CB_IN_2026_03043_EV_02",
+      "evidence_type": "DELIVERY_TRACKING",
+      "is_required": false,
+      "quality_score": 0.1061
+    }
+  ]
+}

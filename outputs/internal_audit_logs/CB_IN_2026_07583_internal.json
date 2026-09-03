@@ -1,0 +1,48 @@
+{
+  "case_id": "CB_IN_2026_07583",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "67.6%",
+    "expected_value_inr": 16812.611365097044,
+    "model_decision": "FIGHT",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "REFUND_NOT_RECEIVED",
+    "mandatory_required_docs": [
+      "REFUND_RECORD"
+    ],
+    "submitted_doc_types": [
+      "PRODUCT_IMAGES",
+      "DELIVERY_TRACKING",
+      "REFUND_POLICY",
+      "REFUND_RECORD"
+    ],
+    "all_mandatory_present": true
+  },
+  "submitted_evidence_scores": [
+    {
+      "evidence_id": "CB_IN_2026_07583_EV_00",
+      "evidence_type": "REFUND_RECORD",
+      "is_required": true,
+      "quality_score": 0.8177
+    },
+    {
+      "evidence_id": "CB_IN_2026_07583_EV_01",
+      "evidence_type": "REFUND_POLICY",
+      "is_required": false,
+      "quality_score": 0.5291
+    },
+    {
+      "evidence_id": "CB_IN_2026_07583_EV_02",
+      "evidence_type": "DELIVERY_TRACKING",
+      "is_required": false,
+      "quality_score": 0.1599
+    },
+    {
+      "evidence_id": "CB_IN_2026_07583_EV_03",
+      "evidence_type": "PRODUCT_IMAGES",
+      "is_required": false,
+      "quality_score": 0.1159
+    }
+  ]
+}
