@@ -1,0 +1,26 @@
+{
+  "case_id": "CB_IN_2026_04568",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "73.6%",
+    "expected_value_inr": -154.51438474559785,
+    "model_decision": "CONCEDE",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "REFUND_NOT_RECEIVED",
+    "mandatory_required_docs": [
+      "REFUND_RECORD"
+    ],
+    "submitted_doc_types": [
+      "CUSTOMER_COMMUNICATION",
+      "REFUND_POLICY",
+      "PRODUCT_IMAGES",
+      "BANK_RRN_RECORD",
+      "DEVICE_LOG",
+      "CANCELLATION_RECORD",
+      "REFUND_RECORD",
+      "TRANSACTION_RECEIPT"
+    ],
+    "all_mandatory_present": true
+  }
+}

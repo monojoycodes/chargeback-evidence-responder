@@ -1,0 +1,25 @@
+{
+  "case_id": "CB_IN_2026_08888",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "12.7%",
+    "expected_value_inr": -367.7869042330235,
+    "model_decision": "CONCEDE",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "SERVICE_NOT_PROVIDED",
+    "mandatory_required_docs": [
+      "SERVICE_COMPLETION_PROOF"
+    ],
+    "submitted_doc_types": [
+      "ACCOUNT_USAGE_LOG",
+      "CUSTOMER_COMMUNICATION",
+      "INVOICE",
+      "SERVICE_COMPLETION_PROOF",
+      "DEVICE_LOG",
+      "TERMS_ACCEPTANCE",
+      "DELIVERY_TRACKING"
+    ],
+    "all_mandatory_present": true
+  }
+}

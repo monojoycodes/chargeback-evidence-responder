@@ -20,7 +20,6 @@ if __name__ == "__main__":
     url = "http://127.0.0.1:8000"
     print("=" * 65)
     print("  AI CHARGEBACK EVIDENCE RESPONDER — DASHBOARD & DEMO ENGINE")
-    print("  Razorpay Track 02 (AI Risk Manager)")
     print("=" * 65)
     print(f"\n  Serving on: {url}")
     print("  Press CTRL+C to stop the server.\n")

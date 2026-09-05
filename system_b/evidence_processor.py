@@ -66,6 +66,15 @@ def get_high_ev_cases(split="test"):
     return high_ev_df.sort_values("expected_value", ascending=False)
 
 
+_CACHED_EVIDENCE_DF = None
+
+def get_cached_evidence_df():
+    global _CACHED_EVIDENCE_DF
+    if _CACHED_EVIDENCE_DF is None:
+        _CACHED_EVIDENCE_DF = pd.read_csv(EVIDENCE_PATH)
+    return _CACHED_EVIDENCE_DF
+
+
 def get_case_evidence_payload(case_id, cases_df=None):
     """
     Retrieves case metadata and filtered/ranked evidence items for a given case_id.
@@ -80,8 +89,8 @@ def get_case_evidence_payload(case_id, cases_df=None):
 
     case_meta = case_row.iloc[0].to_dict()
 
-    # Load evidence items
-    evidence_df = pd.read_csv(EVIDENCE_PATH)
+    # Load evidence items (cached)
+    evidence_df = get_cached_evidence_df()
     case_evidence = evidence_df[evidence_df["case_id"] == case_id].copy()
 
     # OPTION B: Pass ALL evidence items to LLM for dynamic text auditing

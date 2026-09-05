@@ -1,0 +1,24 @@
+{
+  "case_id": "CB_IN_2026_02755",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "73.1%",
+    "expected_value_inr": 483.26799350309375,
+    "model_decision": "FIGHT",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "DUPLICATE_TRANSACTION",
+    "mandatory_required_docs": [
+      "PAYMENT_AUTHORIZATION"
+    ],
+    "submitted_doc_types": [
+      "PAYMENT_AUTHORIZATION",
+      "PRODUCT_IMAGES",
+      "BANK_RRN_RECORD",
+      "LOGIN_LOG",
+      "DELIVERY_TRACKING",
+      "TRANSACTION_RECEIPT"
+    ],
+    "all_mandatory_present": true
+  }
+}

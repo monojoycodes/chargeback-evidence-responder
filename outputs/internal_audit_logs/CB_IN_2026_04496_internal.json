@@ -1,0 +1,22 @@
+{
+  "case_id": "CB_IN_2026_04496",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "80.6%",
+    "expected_value_inr": 284.3209225426913,
+    "model_decision": "FIGHT",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "REFUND_NOT_RECEIVED",
+    "mandatory_required_docs": [
+      "REFUND_RECORD"
+    ],
+    "submitted_doc_types": [
+      "REFUND_RECORD",
+      "PRODUCT_IMAGES",
+      "DELIVERY_TRACKING",
+      "REFUND_POLICY"
+    ],
+    "all_mandatory_present": true
+  }
+}

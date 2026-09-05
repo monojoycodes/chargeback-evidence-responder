@@ -1,0 +1,22 @@
+{
+  "case_id": "CB_IN_2026_06572",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "35.0%",
+    "expected_value_inr": -479.09412967920304,
+    "model_decision": "CONCEDE",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "SUBSCRIPTION_CANCELED",
+    "mandatory_required_docs": [
+      "CANCELLATION_RECORD"
+    ],
+    "submitted_doc_types": [
+      "PRODUCT_IMAGES",
+      "CUSTOMER_COMMUNICATION",
+      "DELIVERY_TRACKING",
+      "CANCELLATION_RECORD"
+    ],
+    "all_mandatory_present": true
+  }
+}

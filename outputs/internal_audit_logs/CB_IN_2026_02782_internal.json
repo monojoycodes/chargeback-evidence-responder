@@ -1,0 +1,26 @@
+{
+  "case_id": "CB_IN_2026_02782",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "3.0%",
+    "expected_value_inr": -1252.7203022789583,
+    "model_decision": "CONCEDE",
+    "false_positive_cost_inr": 1700
+  },
+  "mandatory_document_audit": {
+    "category": "FRAUD_UNAUTHORIZED",
+    "mandatory_required_docs": [
+      "PAYMENT_AUTHORIZATION",
+      "THREE_DS_AUTHENTICATION"
+    ],
+    "submitted_doc_types": [
+      "PAYMENT_AUTHORIZATION",
+      "REFUND_POLICY",
+      "SERVICE_COMPLETION_PROOF",
+      "ORDER_CONFIRMATION",
+      "DEVICE_LOG",
+      "RETURN_POLICY",
+      "THREE_DS_AUTHENTICATION"
+    ],
+    "all_mandatory_present": true
+  }
+}

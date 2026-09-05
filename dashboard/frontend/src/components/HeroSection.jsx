@@ -9,15 +9,11 @@ export default function HeroSection({ onExploreQueue, onOpenSimulator, stats }) 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         
-        {/* Top Centered Pill Badge (Matches Reference Image 1) */}
+        {/* Top Centered Pill Badge */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm mb-6">
           <span className="flex h-2 w-2 rounded-full bg-[#0C66E4]" />
           <span className="text-xs font-bold tracking-wider uppercase text-slate-800">
-            AI CHARGEBACK EVIDENCE RESPONDER
-          </span>
-          <span className="text-slate-300">|</span>
-          <span className="text-[11px] font-medium text-slate-500">
-            Razorpay Track 02 • AI Risk Manager
+            Autonomous Chargeback Defense
           </span>
         </div>
 
