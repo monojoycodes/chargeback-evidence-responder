@@ -13,50 +13,12 @@
     ],
     "submitted_doc_types": [
       "SERVICE_COMPLETION_PROOF",
-      "PROOF_OF_DELIVERY",
       "TERMS_ACCEPTANCE",
-      "DELIVERY_TRACKING",
       "INVOICE",
-      "DEVICE_LOG"
+      "DEVICE_LOG",
+      "PROOF_OF_DELIVERY",
+      "DELIVERY_TRACKING"
     ],
     "all_mandatory_present": true
-  },
-  "submitted_evidence_scores": [
-    {
-      "evidence_id": "CB_IN_2026_09076_EV_00",
-      "evidence_type": "SERVICE_COMPLETION_PROOF",
-      "is_required": true,
-      "quality_score": 0.9845
-    },
-    {
-      "evidence_id": "CB_IN_2026_09076_EV_02",
-      "evidence_type": "TERMS_ACCEPTANCE",
-      "is_required": false,
-      "quality_score": 0.8743
-    },
-    {
-      "evidence_id": "CB_IN_2026_09076_EV_01",
-      "evidence_type": "INVOICE",
-      "is_required": false,
-      "quality_score": 0.6354
-    },
-    {
-      "evidence_id": "CB_IN_2026_09076_EV_03",
-      "evidence_type": "DELIVERY_TRACKING",
-      "is_required": false,
-      "quality_score": 0.3996
-    },
-    {
-      "evidence_id": "CB_IN_2026_09076_EV_04",
-      "evidence_type": "DEVICE_LOG",
-      "is_required": false,
-      "quality_score": 0.1794
-    },
-    {
-      "evidence_id": "CB_IN_2026_09076_EV_05",
-      "evidence_type": "PROOF_OF_DELIVERY",
-      "is_required": false,
-      "quality_score": 0.008
-    }
-  ]
+  }
 }

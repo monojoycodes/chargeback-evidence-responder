@@ -32,15 +32,19 @@ uv venv --python 3.11
 uv pip install -r requirements.txt
 ```
 
-## Running the generator
+## Launching the Interactive System
 
-Generate the synthetic dataset:
+Run the unified dashboard server:
 
 ```bash
-uv run python data/generate_Data.py
+uv run python run_dashboard.py
 ```
 
-This writes CSV outputs into the project workspace, including the generated case/evidence datasets used by the responder systems.
+Then navigate to `http://127.0.0.1:8000` to interact with:
+- **Overview**: Executive summary and 3-step decision pipeline.
+- **Dispute Dashboard**: Real-time filtering and risk scoring across 1,500 disputes.
+- **Test System Flow**: Step-by-step evaluation wizard with dynamic held-out test scenarios, System A risk gating, and 3-page bank-ready PDF compilation.
+- **About**: Architectural breakdown of financial gating and agentic document auditing.
 
 ## Project structure
 

@@ -1,10 +1,10 @@
 {
-  "case_id": "CB_IN_2026_01094",
+  "case_id": "CB_IN_2026_03101",
   "internal_ai_metrics": {
-    "system_a_win_probability": "78.4%",
-    "expected_value_inr": 10817.838042884112,
+    "system_a_win_probability": "80.3%",
+    "expected_value_inr": 205.00221019041527,
     "model_decision": "FIGHT",
-    "false_positive_cost_inr": 800
+    "false_positive_cost_inr": 1700
   },
   "mandatory_document_audit": {
     "category": "ITEM_NOT_RECEIVED",
@@ -14,11 +14,13 @@
     ],
     "submitted_doc_types": [
       "LOGIN_LOG",
-      "TERMS_AND_CONDITIONS",
-      "PROOF_OF_DELIVERY",
-      "DEVICE_LOG",
       "DELIVERY_TRACKING",
-      "ORDER_CONFIRMATION"
+      "SIGNED_DELIVERY",
+      "TERMS_AND_CONDITIONS",
+      "DEVICE_LOG",
+      "REFUND_POLICY",
+      "PROOF_OF_DELIVERY",
+      "INVOICE"
     ],
     "all_mandatory_present": true
   }

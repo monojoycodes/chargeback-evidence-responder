@@ -1,8 +1,8 @@
 {
-  "case_id": "CB_IN_2026_00431",
+  "case_id": "CB_IN_2026_02867",
   "internal_ai_metrics": {
-    "system_a_win_probability": "41.3%",
-    "expected_value_inr": 12968.287247614326,
+    "system_a_win_probability": "42.5%",
+    "expected_value_inr": 4886.9637319970125,
     "model_decision": "FIGHT",
     "false_positive_cost_inr": 1700
   },
@@ -13,14 +13,12 @@
       "THREE_DS_AUTHENTICATION"
     ],
     "submitted_doc_types": [
-      "LOGIN_LOG",
-      "THREE_DS_AUTHENTICATION",
-      "CUSTOMER_COMMUNICATION",
-      "DEVICE_LOG",
-      "RETURN_POLICY",
-      "IP_LOG",
       "DELIVERY_TRACKING",
-      "PAYMENT_AUTHORIZATION"
+      "THREE_DS_AUTHENTICATION",
+      "ORDER_CONFIRMATION",
+      "RETURN_POLICY",
+      "PAYMENT_AUTHORIZATION",
+      "IP_LOG"
     ],
     "all_mandatory_present": true
   }

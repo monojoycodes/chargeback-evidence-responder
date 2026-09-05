@@ -12,37 +12,11 @@
       "REFUND_RECORD"
     ],
     "submitted_doc_types": [
+      "REFUND_POLICY",
       "PRODUCT_IMAGES",
       "DELIVERY_TRACKING",
-      "REFUND_POLICY",
       "REFUND_RECORD"
     ],
     "all_mandatory_present": true
-  },
-  "submitted_evidence_scores": [
-    {
-      "evidence_id": "CB_IN_2026_07583_EV_00",
-      "evidence_type": "REFUND_RECORD",
-      "is_required": true,
-      "quality_score": 0.8177
-    },
-    {
-      "evidence_id": "CB_IN_2026_07583_EV_01",
-      "evidence_type": "REFUND_POLICY",
-      "is_required": false,
-      "quality_score": 0.5291
-    },
-    {
-      "evidence_id": "CB_IN_2026_07583_EV_02",
-      "evidence_type": "DELIVERY_TRACKING",
-      "is_required": false,
-      "quality_score": 0.1599
-    },
-    {
-      "evidence_id": "CB_IN_2026_07583_EV_03",
-      "evidence_type": "PRODUCT_IMAGES",
-      "is_required": false,
-      "quality_score": 0.1159
-    }
-  ]
+  }
 }
