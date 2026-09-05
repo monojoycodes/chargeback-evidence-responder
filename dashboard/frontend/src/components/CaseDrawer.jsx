@@ -178,9 +178,14 @@ export default function CaseDrawer({ caseId, onClose }) {
                     </div>
 
                     <div className="text-right">
-                      <div className="text-[10px] uppercase font-bold text-slate-400">Net Expected Value</div>
-                      <div className="text-lg font-black">
-                        {detail.case_metadata.expected_value > 0 ? '+' : ''}₹{detail.case_metadata.expected_value.toFixed(2)}
+                      <div className="text-[10px] uppercase font-bold text-slate-400">
+                        {detail.case_metadata.model_decision_to_fight === 1 ? 'Amount to Recover' : 'Fee Saved'}
+                      </div>
+                      <div className="text-lg font-black text-slate-900">
+                        ₹{(detail.case_metadata.model_decision_to_fight === 1
+                          ? detail.case_metadata.dispute_amount_inr
+                          : detail.case_metadata.false_positive_cost_inr
+                        ).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                       </div>
                     </div>
                   </div>

@@ -167,7 +167,7 @@ export default function DashboardPage({ onSelectCaseForFlow }) {
                   <th className="py-3 px-4">Network Rail</th>
                   <th className="py-3 px-4 text-right">Disputed Amount</th>
                   <th className="py-3 px-4 text-right">Win Confidence</th>
-                  <th className="py-3 px-4 text-center">AI Decision (EV)</th>
+                  <th className="py-3 px-4 text-center">AI Decision</th>
                   <th className="py-3 px-4 text-right">Action</th>
                 </tr>
               </thead>
@@ -206,7 +206,7 @@ export default function DashboardPage({ onSelectCaseForFlow }) {
                         {isFight ? (
                           <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
                             <CheckCircle2 className="w-3 h-3" />
-                            FIGHT (+₹{c.expected_value.toFixed(0)})
+                            FIGHT
                           </span>
                         ) : (
                           <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">

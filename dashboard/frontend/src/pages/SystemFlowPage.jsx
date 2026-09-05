@@ -300,16 +300,22 @@ export default function SystemFlowPage({ initialCaseId }) {
               <div className="text-[10px] uppercase tracking-widest font-bold text-slate-400 mb-0.5">System A verdict</div>
               <div className="text-lg font-black text-slate-900">{isFight ? "Fight this dispute" : "Concede this dispute"}</div>
               <div className="text-xs text-slate-500 mt-0.5">
-                Full amount at stake: <span className="font-semibold text-slate-800">₹{m.dispute_amount_inr.toLocaleString("en-IN")}</span> (100% recovered on win)
+                {isFight
+                  ? `Recommended: High win confidence (${winPct}%) justifies contesting`
+                  : `Recommended: Low win probability (${winPct}%) — concede to protect margin`}
               </div>
             </div>
           </div>
           <div className="text-right">
-            <div className="text-[10px] uppercase tracking-widest text-slate-400 mb-0.5">Net Expected Value (EV)</div>
-            <div className={`text-2xl font-black tabular-nums ${isFight ? "text-emerald-700" : "text-slate-500"}`}>
-              {m.expected_value > 0 ? "+" : ""}₹{m.expected_value.toFixed(2)}
+            <div className="text-[10px] uppercase tracking-widest text-slate-400 mb-0.5">
+              {isFight ? "Amount to Recover" : "Fee Risk Saved"}
             </div>
-            <div className="text-[11px] text-slate-400">Risk-weighted expectation</div>
+            <div className={`text-2xl font-black tabular-nums ${isFight ? "text-emerald-700" : "text-slate-700"}`}>
+              ₹{(isFight ? m.dispute_amount_inr : m.false_positive_cost_inr).toLocaleString("en-IN", { minimumFractionDigits: 2 })}
+            </div>
+            <div className="text-[11px] text-slate-400">
+              {isFight ? "100% credited to merchant on win" : "Saved by avoiding representment"}
+            </div>
           </div>
         </div>
 
@@ -329,17 +335,17 @@ export default function SystemFlowPage({ initialCaseId }) {
           </div>
 
           <div className="bg-[#0C2340] rounded-xl p-5 space-y-3">
-            <div className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Expected value formula</div>
+            <div className="text-[10px] uppercase tracking-widest text-slate-400 font-semibold">Decision logic: Expected Value (EV) calculation</div>
             <div className="font-mono text-sm text-blue-300 leading-relaxed">EV = (P(win) × Amount) − ((1 − P(win)) × Fee)</div>
             <div className="border-t border-slate-700 pt-2.5 font-mono text-xs text-slate-300 space-y-1">
               <div>= ({winPct}% × ₹{m.dispute_amount_inr.toLocaleString("en-IN")})</div>
               <div className="pl-2">− ({lossPct}% × ₹{m.false_positive_cost_inr.toLocaleString("en-IN")})</div>
             </div>
             <div className={`text-base font-black font-mono ${isFight ? "text-emerald-400" : "text-slate-400"}`}>
-              = {m.expected_value > 0 ? "+" : ""}₹{m.expected_value.toFixed(2)}
+              = {m.expected_value > 0 ? "+" : ""}₹{m.expected_value.toFixed(2)} {isFight ? "(Contest approved)" : "(Concede approved)"}
             </div>
             <p className="text-[11px] text-slate-400 border-t border-slate-700/60 pt-2 leading-tight">
-              Note: EV is the statistical return. If won, merchant recovers the full ₹{m.dispute_amount_inr.toLocaleString("en-IN")}.
+              EV is the mathematical risk filter used to avoid fee loss. On win, merchant is credited 100% (₹{m.dispute_amount_inr.toLocaleString("en-IN")}).
             </p>
           </div>
         </div>
