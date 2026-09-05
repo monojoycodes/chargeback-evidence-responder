@@ -72,7 +72,7 @@ def run_full_flow_test(num_cases=5, seed=2026):
         decision = case_row["model_decision_to_fight"]
         actual_won = case_row["merchant_representment_won"]
 
-        decision_str = "FIGHT (EV > 0)" if decision == 1 else "CONCEDE (EV <= 0)"
+        decision_str = f"FIGHT (Net EV: +Rs {ev:.2f})" if decision == 1 else f"CONCEDE (EV: Rs {ev:.2f}, P(Win): {win_prob:.1%})"
 
         print("-" * 70)
         print(f"CASE {idx}/{num_cases}: {case_id}")

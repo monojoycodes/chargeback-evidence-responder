@@ -479,8 +479,19 @@ def simulate_ev(req: SimulationRequest):
     fee = max(0.0, req.false_positive_cost_inr)
 
     ev = (p * amt) - ((1.0 - p) * fee)
-    decision = "FIGHT" if ev > 0 else "CONCEDE"
+    # Production risk policy: EV must exceed ₹50 floor AND Win Prob must meet 20% confidence floor
+    # Fighting high-ticket disputes with single-digit win odds ruins acquirer dispute ratios for negligible expected gain
+    decision = "FIGHT" if (ev >= 50.0 and p >= 0.20) else "CONCEDE"
     break_even_p = fee / (amt + fee) if (amt + fee) > 0 else 0.5
+
+    concede_reason = None
+    if decision == "CONCEDE":
+        if p < 0.20 and ev > 0:
+            concede_reason = f"Win confidence ({(p*100):.1f}%) is below the 20% safety threshold. Contesting high-probability losses degrades merchant dispute standing with card schemes."
+        elif ev < 50.0 and ev > 0:
+            concede_reason = f"Net Expected Value (+₹{ev:.2f}) is below the ₹50 operational hurdle rate. Insufficient return to justify representment fee risk."
+        else:
+            concede_reason = "Negative expected value (EV ≤ 0). Contesting guarantees net statistical margin loss."
 
     curve_points = []
     for prob_step in range(0, 101, 10):
@@ -494,6 +505,7 @@ def simulate_ev(req: SimulationRequest):
         "false_positive_cost_inr": fee,
         "expected_value": round(ev, 2),
         "decision": decision,
+        "concede_reason": concede_reason,
         "break_even_prob_pct": round(break_even_p * 100, 1),
         "potential_recovery": round(p * amt, 2),
         "risk_loss_exposure": round((1.0 - p) * fee, 2),

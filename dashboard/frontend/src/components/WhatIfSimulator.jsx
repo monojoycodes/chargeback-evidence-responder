@@ -26,7 +26,7 @@ export default function WhatIfSimulator() {
     calculateEV();
   }, [amount, winProb, fee]);
 
-  const isFight = simResult && simResult.expected_value > 0;
+  const isFight = simResult && simResult.decision === 'FIGHT';
 
   return (
     <div className="max-w-5xl mx-auto space-y-6">
@@ -156,9 +156,16 @@ export default function WhatIfSimulator() {
                     FIGHT DISPUTE
                   </div>
                 ) : (
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-700 text-white font-extrabold text-sm shadow-sm">
-                    <XCircle className="w-4 h-4" />
-                    CONCEDE DISPUTE
+                  <div className="space-y-1.5">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-700 text-white font-extrabold text-sm shadow-sm">
+                      <XCircle className="w-4 h-4" />
+                      CONCEDE DISPUTE
+                    </div>
+                    {simResult?.concede_reason && (
+                      <p className="text-[11px] text-slate-500 leading-tight">
+                        {simResult.concede_reason}
+                      </p>
+                    )}
                   </div>
                 )}
               </div>

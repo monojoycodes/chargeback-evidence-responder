@@ -51,7 +51,16 @@ def load_and_score_cases():
         cases_df["predicted_win_prob"] * cases_df["dispute_amount_inr"]
         - (1 - cases_df["predicted_win_prob"]) * cases_df["false_positive_cost_inr"]
     )
-    cases_df["model_decision_to_fight"] = (cases_df["expected_value"] > 0).astype(int)
+    # Production Risk Policy:
+    # 1. Net Expected Value must exceed minimum operational threshold (EV >= INR 50)
+    # 2. Win confidence must meet pragmatic floor (P(Win) >= 20%)
+    # Prevents fighting high-ticket lottery cases with 95% loss likelihood for nominal INR 5 EV
+    MIN_WIN_PROB_FLOOR = 0.20
+    MIN_EV_FLOOR = 50.0
+    cases_df["model_decision_to_fight"] = (
+        (cases_df["expected_value"] >= MIN_EV_FLOOR)
+        & (cases_df["predicted_win_prob"] >= MIN_WIN_PROB_FLOOR)
+    ).astype(int)
 
     return cases_df
 

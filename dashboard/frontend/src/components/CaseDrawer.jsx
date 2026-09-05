@@ -168,6 +168,10 @@ export default function CaseDrawer({ caseId, onClose }) {
                         <div className="text-xs text-slate-600 mt-0.5">
                           {detail.case_metadata.model_decision_to_fight === 1
                             ? `Positive Expected Value (+₹${detail.case_metadata.expected_value.toFixed(2)}). Recovering merchant margin.`
+                            : detail.case_metadata.predicted_win_prob < 0.20
+                            ? `Win probability (${(detail.case_metadata.predicted_win_prob * 100).toFixed(1)}%) below 20% safety floor. Conceding protects gateway standing.`
+                            : detail.case_metadata.expected_value < 50.0
+                            ? `Net EV (+₹${detail.case_metadata.expected_value.toFixed(2)}) below ₹50 hurdle rate. Conceding avoids fee risk.`
                             : `Negative Expected Value (EV ≤ 0). Conceding saves ₹${detail.case_metadata.false_positive_cost_inr} fee on low win probability.`}
                         </div>
                       </div>

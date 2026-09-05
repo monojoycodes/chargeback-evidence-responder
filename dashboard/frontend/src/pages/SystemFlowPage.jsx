@@ -47,7 +47,7 @@ function StepDot({ n, label, current, onClick }) {
 }
 
 function ScenarioCard({ sc, selected, onSelect }) {
-  const isFight = sc.model_decision_to_fight === 1 || (sc.expected_value !== undefined ? sc.expected_value > 0 : false);
+  const isFight = sc.model_decision_to_fight === 1;
   return (
     <button
       onClick={() => onSelect(sc.case_id)}
@@ -349,6 +349,10 @@ export default function SystemFlowPage({ initialCaseId }) {
           <p className="text-sm text-slate-600 leading-relaxed">
             {isFight
               ? `If contested and won, the merchant recovers the full ₹${m.dispute_amount_inr.toLocaleString("en-IN")}. With a ${winPct}% win likelihood against an ₹${m.false_positive_cost_inr.toLocaleString("en-IN")} downside fee, expected gains (+₹${expectedRecovery}) exceed expected fee risk (-₹${riskLoss}), yielding a net positive EV of +₹${m.expected_value.toFixed(2)}.`
+              : m.predicted_win_prob < 0.20 && m.expected_value > 0
+                ? `Disputed amount is high (₹${m.dispute_amount_inr.toLocaleString("en-IN")}), producing a nominal statistical return (+₹${m.expected_value.toFixed(2)}). However, win confidence is critically low (${winPct}% < 20% safety floor). Card schemes monitor dispute loss rates; contesting high-probability losses triggers acquirer scrutiny and risks losing ₹${m.false_positive_cost_inr.toLocaleString("en-IN")} in fees on a ${(100 - parseFloat(winPct)).toFixed(1)}% likely loss. Conceding preserves merchant operational standing.`
+              : m.expected_value > 0 && m.expected_value < 50.0
+                ? `Nominal expected value (+₹${m.expected_value.toFixed(2)}) is below the ₹50 operational hurdle rate. Fighting for negligible margin exposes the merchant to ₹${m.false_positive_cost_inr.toLocaleString("en-IN")} in representment fee risk.`
               : `Disputed amount (₹${m.dispute_amount_inr.toLocaleString("en-IN")}) does not justify the representment fee risk (₹${m.false_positive_cost_inr.toLocaleString("en-IN")}). Conceding immediately protects merchant margin by ₹${Math.abs(m.expected_value).toFixed(2)}.`
             }
           </p>
