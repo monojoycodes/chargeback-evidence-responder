@@ -1,0 +1,30 @@
+{
+  "case_id": "CB_IN_2026_08918",
+  "internal_ai_metrics": {
+    "system_a_win_probability": "77.7%",
+    "expected_value_inr": 553.0412483457326,
+    "model_decision": "FIGHT",
+    "false_positive_cost_inr": 800
+  },
+  "mandatory_document_audit": {
+    "category": "NOT_AS_DESCRIBED",
+    "mandatory_required_docs": [
+      "ORDER_CONFIRMATION",
+      "PRODUCT_DESCRIPTION"
+    ],
+    "submitted_doc_types": [
+      "PRODUCT_DESCRIPTION",
+      "CUSTOMER_COMMUNICATION",
+      "IP_LOG",
+      "TERMS_AND_CONDITIONS",
+      "QC_RECORDS",
+      "ORDER_CONFIRMATION",
+      "RETURN_RECORD",
+      "THREE_DS_AUTHENTICATION",
+      "DEVICE_LOG",
+      "PRODUCT_IMAGES",
+      "INVOICE"
+    ],
+    "all_mandatory_present": true
+  }
+}
